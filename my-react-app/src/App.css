@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+    body {
+    background-color: #318CE7 !important;
+    } 
+
+.form-container {
+  @apply max-w-md mx-auto p-6 bg-white rounded-md shadow-md;
+}
+
+.input-field {
+  @apply w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500;
+}
+
+.submit-button {
+  @apply w-full mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none;
+}
+
+.contact-info {
+  @apply mt-4 text-center text-sm;
+}
+
+.contact-number {
+  @apply text-blue-600;
+}
