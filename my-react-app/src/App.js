@@ -17,6 +17,36 @@ const App = ({ onNext }) => {
     budget: '',
   });
 
+  const handleSubmitUser = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/users', {
+        firstname: formData.firstName,
+        lastname: formData.lastName,
+        username: formData.userName,
+        email: formData.email,
+      });
+      console.log(response.data);
+      nextStep(); // Başarılı ise sonraki adıma geç
+    } catch (error) {
+      console.error('User submission error:', error);
+    }
+  };
+
+  // İkinci adım için handler
+  const handleSubmitProject = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/projects', {
+        youAre: formData.youare,
+        youHave: formData.youhave,
+        typeOfProject: formData.typeOfProject,
+        budget: formData.budget,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Project submission error:', error);
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevFormData => ({
